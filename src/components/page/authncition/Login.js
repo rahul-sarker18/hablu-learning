@@ -1,11 +1,61 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
+import { AiFillGithub } from 'react-icons/ai';
+import { FcGoogle } from 'react-icons/fc';
 import { Link } from "react-router-dom";
+import { Authcontext } from '../../Context/UserContext';
 
 const Login = () => {
+
+  const { googlesignupFunc , gitsignFunc ,loginemailfunc } = useContext(Authcontext);
+
+// login gmail and password
+const handellogin=(event) =>{
+  event.preventDefault();
+  const form = event.target;
+  const email =form.email.value;
+  const password = form.password.value;
+  console.log(email ,password);
+  loginemailfunc(email , password)
+  .then(result => {
+    console.log(result.user)
+    form.reset()
+    toast.success('succes full log in')
+  })
+
+  .catch(e => console.log(e))
+
+}
+
+
+
+
+
+   // google sign up
+   const handelgooglesignup =()=>{
+    googlesignupFunc()
+    .then(result => {
+      console.log(result.user);
+      toast.success('success full sign up with GOOGLE')
+    })
+    .catch(e => console.log(e))
+  }
+
+  // github sign up
+
+  const handelgitsignup =()=>{
+    gitsignFunc()
+    .then(result => {
+      console.log(result.user);
+      toast.success('success full sign up with GIT-HUB')
+    })
+    .catch(e => console.log(e))
+    
+  }
   return (
     <div className="w-full mx-auto my-10  max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100">
       <h1 className="text-2xl font-bold text-center">Login</h1>
-      <form className="space-y-6 ng-untouched ng-pristine ng-valid">
+      <form onSubmit={handellogin} className="space-y-6 ng-untouched ng-pristine ng-valid">
         <div className="space-y-1 text-sm">
           <label htmlFor="email" className="block dark:text-gray-400">
             Email
@@ -45,11 +95,19 @@ const Login = () => {
         <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
       </div>
       <div className="flex justify-center space-x-4">
-        <button aria-label="Log in with Google" className="p-3 rounded-sm">
-          g
+        <button
+        onClick={handelgooglesignup}
+          aria-label="Log in with Google "
+          className="p-3 text-3xl hover:opacity-80 rounded-sm"
+        >
+          <FcGoogle />
         </button>
-        <button aria-label="Log in with Twitter" className="p-3 rounded-sm">
-          g
+        <button
+        onClick={handelgitsignup}
+          aria-label="Log in with Twitter"
+          className="p-3 text-3xl hover:opacity-80 rounded-sm"
+        >
+          <AiFillGithub />
         </button>
       </div>
       <p className="text-xs text-center sm:px-6 dark:text-gray-400">

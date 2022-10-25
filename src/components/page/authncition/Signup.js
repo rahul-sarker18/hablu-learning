@@ -7,7 +7,7 @@ import { FcGoogle } from "react-icons/fc";
 import { AiFillGithub } from "react-icons/ai";
 
 const Signup = () => {
-  const { signupemailpass, auth , googlesignupFunc } = useContext(Authcontext);
+  const { signupemailpass, auth , googlesignupFunc , gitsignFunc } = useContext(Authcontext);
 
   const handelsignup = (event) => {
     event.preventDefault();
@@ -43,7 +43,7 @@ const Signup = () => {
     googlesignupFunc()
     .then(result => {
       console.log(result.user);
-      toast.success('success full sign up with google')
+      toast.success('success full sign up with GOOGLE')
     })
     .catch(e => console.log(e))
   }
@@ -51,7 +51,13 @@ const Signup = () => {
   // github sign up
 
   const handelgitsignup =()=>{
-    console.log('git hub conacted');
+    gitsignFunc()
+    .then(result => {
+      console.log(result.user);
+      toast.success('success full sign up with GIT-HUB')
+    })
+    .catch(e => console.log(e))
+    
   }
 
   return (
@@ -133,7 +139,7 @@ const Signup = () => {
           to="/login"
           className="underline dark:text-gray-100"
         >
-          Sign up
+          Log in
         </Link>
       </p>
     </div>
