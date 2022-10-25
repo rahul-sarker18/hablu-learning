@@ -15,15 +15,11 @@ const Signup = () => {
     const username = form.username.value;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(username, email, password);
 
     //email and pass
 
     signupemailpass(email, password)
       .then((result) => {
-        const user = result.user;
-        console.log(user);
-
         form.reset();
         updateProfile(auth.currentUser, {
           displayName: username,
@@ -39,26 +35,24 @@ const Signup = () => {
   };
 
   // google sign up
-  const handelgooglesignup =()=>{
+  const handelgooglesignup = () => {
     googlesignupFunc()
-    .then(result => {
-      console.log(result.user);
-      toast.success('success full sign up with GOOGLE')
-    })
-    .catch(e => console.log(e))
-  }
+      .then((result) => {
+        console.log(result.user);
+        toast.success("success full sign up with GOOGLE");
+      })
+      .catch((e) => console.log(e));
+  };
 
   // github sign up
 
-  const handelgitsignup =()=>{
+  const handelgitsignup = () => {
     gitsignFunc()
-    .then(result => {
-      console.log(result.user);
-      toast.success('success full sign up with GIT-HUB')
-    })
-    .catch(e => console.log(e))
-    
-  }
+      .then((result) => {
+        toast.success("success full sign up with GIT-HUB");
+      })
+      .catch((e) => console.log(e));
+  };
 
   // chatch box 
   const [chetch , setChetch] =useState(false);

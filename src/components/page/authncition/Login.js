@@ -16,7 +16,7 @@ const Login = () => {
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
+
     loginemailfunc(email, password)
       .then((result) => {
         console.log(result.user);
@@ -31,7 +31,6 @@ const Login = () => {
   const handelgooglesignup = () => {
     googlesignupFunc()
       .then((result) => {
-        console.log(result.user);
         toast.success("success full sign up with GOOGLE");
       })
       .catch((e) => console.log(e));
@@ -42,7 +41,6 @@ const Login = () => {
   const handelgitsignup = () => {
     gitsignFunc()
       .then((result) => {
-        console.log(result.user);
         toast.success("success full sign up with GIT-HUB");
       })
       .catch((e) => console.log(e));

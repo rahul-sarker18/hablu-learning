@@ -16,7 +16,7 @@ const Privatrout = ({ children }) => {
       </div>
     );
   }
-  if (usr.uid) {
+  if (usr?.uid) {
     return children;
   }
 

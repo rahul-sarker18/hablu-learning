@@ -1,9 +1,16 @@
+import { signOut } from "firebase/auth";
 import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Authcontext } from "../../Context/UserContext";
 
 const Header = () => {
-  const { usr } = useContext(Authcontext);
+  const { usr, auth } = useContext(Authcontext);
+
+  const logoutbtn = () => {
+    signOut(auth)
+      .then(() => {})
+      .catch((error) => {});
+  };
 
   return (
     <div className="navbar bg-orange-300 text-slate-900 shadow-lg">
@@ -34,7 +41,9 @@ const Header = () => {
             <NavLink to="/profile">Profile</NavLink>
           </li>
           {usr?.uid ? (
-            <li><NavLink>Sign Out</NavLink></li>
+            <li>
+              <NavLink onClick={logoutbtn}>Sign Out</NavLink>
+            </li>
           ) : (
             <>
               <li>
@@ -83,7 +92,9 @@ const Header = () => {
             <NavLink to="/profile">Profile</NavLink>
           </li>
           {usr?.uid ? (
-            <li><NavLink>Sign Out</NavLink></li>
+            <li>
+              <NavLink onClick={logoutbtn}>Sign Out</NavLink>
+            </li>
           ) : (
             <>
               <li>
@@ -111,29 +122,24 @@ const Header = () => {
           <span className="text-slate-800">Light</span>
         </label>
 
-        {
-          
-        }
+        {usr?.uid ? (
+          <div className="avatar indicator">
+            <span className="indicator-item badge badge-secondary"></span>
+            <div className="w-10 h-10 rounded-full border-solid border-2 border-sky-500 ">
+              {usr?.photoURL ? (
+                <img title={usr?.displayName} src={usr.photoURL} alt="" />
+              ) : (
+                <img
+                  title={usr?.displayName}
+                  src="https://www.krasbival.com/image/clients/noimg.jpg"
+                  alt=""
+                />
+              )}
+            </div>
+          </div>
+        ) : undefined}
 
-        {usr?.photoURL ? (
-          <div className="avatar indicator">
-            <span className="indicator-item badge badge-secondary"></span>
-            <div className="w-10 h-10 rounded-full border-solid border-2 border-sky-500 ">
-              <img title={usr?.displayName} src={usr.photoURL} alt="" />
-            </div>
-          </div>
-        ) : (
-          <div className="avatar indicator">
-            <span className="indicator-item badge badge-secondary"></span>
-            <div className="w-10 h-10 rounded-full border-solid border-2 border-sky-500 ">
-              <img
-                title={usr?.displayName}
-                src="https://www.krasbival.com/image/clients/noimg.jpg"
-                alt=""
-              />
-            </div>
-          </div>
-        )}
+      
       </div>
     </div>
   );
