@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import app from "../../Firebase/firebase";
 import {createUserWithEmailAndPassword, getAuth, GithubAuthProvider, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, updateProfile} from 'firebase/auth'
 export const Authcontext = createContext();
@@ -6,7 +6,7 @@ export const Authcontext = createContext();
 const auth =getAuth(app)
 
 const UserContext = ({ children }) => {
-    const [usr , setUser] =useState('rahul');
+    const [usr , setUser] =useState(null);
 
     //email and password signup
     const signupemailpass =(email, password)=>{
@@ -34,6 +34,10 @@ const UserContext = ({ children }) => {
     const gitsignFunc =()=>{
       return signInWithPopup(auth , providerg)
     }
+
+    useEffect(()=>{
+      const unsubscribe =
+    },[])
 
   const authInfo = {usr,auth , signupemailpass,updateusername , googlesignupFunc , gitsignFunc , loginemailfunc };
   return (

@@ -1,57 +1,70 @@
-import React, { useContext } from 'react';
-import toast from 'react-hot-toast';
-import { AiFillGithub } from 'react-icons/ai';
-import { FcGoogle } from 'react-icons/fc';
+import { sendPasswordResetEmail } from "firebase/auth";
+import React, { useContext, useState } from "react";
+import toast from "react-hot-toast";
+import { AiFillGithub } from "react-icons/ai";
+import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
-import { Authcontext } from '../../Context/UserContext';
+import { Authcontext } from "../../Context/UserContext";
 
 const Login = () => {
+  const { googlesignupFunc, gitsignFunc, loginemailfunc ,auth } =
+    useContext(Authcontext);
 
-  const { googlesignupFunc , gitsignFunc ,loginemailfunc } = useContext(Authcontext);
+  // login gmail and password
+  const handellogin = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email, password);
+    loginemailfunc(email, password)
+      .then((result) => {
+        console.log(result.user);
+        form.reset();
+        toast.success("succes full log in");
+      })
 
-// login gmail and password
-const handellogin=(event) =>{
-  event.preventDefault();
-  const form = event.target;
-  const email =form.email.value;
-  const password = form.password.value;
-  console.log(email ,password);
-  loginemailfunc(email , password)
-  .then(result => {
-    console.log(result.user)
-    form.reset()
-    toast.success('succes full log in')
-  })
+      .catch((e) => console.log(e));
+  };
 
-  .catch(e => console.log(e))
-
-}
-
-
-
-
-
-   // google sign up
-   const handelgooglesignup =()=>{
+  // google sign up
+  const handelgooglesignup = () => {
     googlesignupFunc()
-    .then(result => {
-      console.log(result.user);
-      toast.success('success full sign up with GOOGLE')
-    })
-    .catch(e => console.log(e))
-  }
+      .then((result) => {
+        console.log(result.user);
+        toast.success("success full sign up with GOOGLE");
+      })
+      .catch((e) => console.log(e));
+  };
 
   // github sign up
 
-  const handelgitsignup =()=>{
+  const handelgitsignup = () => {
     gitsignFunc()
-    .then(result => {
-      console.log(result.user);
-      toast.success('success full sign up with GIT-HUB')
-    })
-    .catch(e => console.log(e))
-    
-  }
+      .then((result) => {
+        console.log(result.user);
+        toast.success("success full sign up with GIT-HUB");
+      })
+      .catch((e) => console.log(e));
+  };
+  // one blur in email get
+  const [getemail, setGetgmail] = useState();
+  const emailget = (e) => {
+    setGetgmail(e.target.value);
+  };
+  // forgot password
+  const forgotpassword = () => {
+    sendPasswordResetEmail(auth ,getemail)
+    .then(()=>{toast.success('checked your email')})
+    .catch(()=>{})
+  };
+
+  // chetch box
+  const [chetch, setChetch] = useState(false);
+  const handelchack = (p) => {
+    setChetch(p.target.checked);
+  };
+
   return (
     <div className="w-full mx-auto my-10  max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100">
       <h1 className="text-2xl font-bold text-center">Login</h1>
@@ -64,6 +77,7 @@ const handellogin=(event) =>{
             Email
           </label>
           <input
+            onBlur={emailget}
             type="email"
             name="email"
             id="email"
@@ -83,22 +97,30 @@ const handellogin=(event) =>{
             className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-100 dark:text-gray-900 focus:dark:border-blue-400"
           />
           <div className="flex justify-end text-xs dark:text-gray-400">
-            <button>Forgot Password?</button>
+            <button onClick={forgotpassword}>Forgot Password?</button>
           </div>
         </div>
         <div className="flex items-center">
           <input
+            onClick={handelchack}
             type="checkbox"
             name="remember"
             id="remember"
             aria-label="Remember me"
             className="mr-1 rounded-sm focus:ring-blue-400 focus:dark:border-blue-400 focus:ring-2 accent-blue-400"
           />
-          <label for="remember" className="text-sm dark:text-gray-400">
+          <label htmlFor="remember" className="text-sm dark:text-gray-400">
             Remember me
           </label>
         </div>
-        <button className="block w-full p-3 text-center rounded-sm dark:text-gray-900 dark:bg-blue-400">
+        <button
+          disabled={!chetch}
+          className={`block w-full p-3 text-center rounded-sm ${
+            chetch
+              ? " dark:text-gray-900 dark:bg-blue-400"
+              : " dark:text-gray-800 dark:bg-blue-300"
+          }`}
+        >
           Sign in
         </button>
       </form>

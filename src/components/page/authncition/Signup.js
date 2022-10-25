@@ -1,5 +1,5 @@
 import { updateProfile } from "firebase/auth";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { Authcontext } from "../../Context/UserContext";
@@ -60,6 +60,13 @@ const Signup = () => {
     
   }
 
+  // chatch box 
+  const [chetch , setChetch] =useState(false);
+  const handelchack=(p)=>{
+    setChetch( p.target.checked);
+  }
+
+
   return (
     <div className="w-full max-w-md p-8 space-y-3 mx-auto my-10 rounded-xl dark:bg-gray-900 dark:text-gray-100">
       <h1 className="text-2xl font-bold text-center">Sign up</h1>
@@ -107,17 +114,18 @@ const Signup = () => {
         </div>
         <div className="flex items-center">
           <input
+          onClick={handelchack}
             type="checkbox"
             name="remember"
             id="remember"
             aria-label="Remember me"
             className="mr-1 rounded-sm focus:ring-blue-400 focus:dark:border-blue-400 focus:ring-2 accent-blue-400"
           />
-          <label for="remember" className="text-sm dark:text-gray-400">
+          <label htmlFor="remember" className="text-sm dark:text-gray-400">
             Remember me
           </label>
         </div>
-        <button className="block w-full p-3 text-center rounded-sm dark:text-gray-900 dark:bg-blue-400">
+        <button disabled={!chetch} className={`block w-full p-3 text-center rounded-sm ${chetch ? ' dark:text-gray-900 dark:bg-blue-400' : ' dark:text-gray-800 dark:bg-blue-300'}`}>
           Sign up
         </button>
       </form>
