@@ -1,12 +1,12 @@
 import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDoKHXiehyrHaP5aQolloHzUJSnOvsj5lI",
-  authDomain: "hablu-learning.firebaseapp.com",
-  projectId: "hablu-learning",
-  storageBucket: "hablu-learning.appspot.com",
-  messagingSenderId: "1072965839346",
-  appId: "1:1072965839346:web:282fa5f4be91d16b68636b",
+  apiKey: process.env.REACT_APP_apiKey,
+  authDomain:process.env.REACT_APP_authDomain,
+  projectId: process.env.REACT_APP_projectId,
+  storageBucket: process.env.REACT_APP_storageBucket,
+  messagingSenderId: process.env.REACT_APP_messagingSenderId,
+  appId: process.env.REACT_APP_appId,
 };
 
 const app = initializeApp(firebaseConfig);
