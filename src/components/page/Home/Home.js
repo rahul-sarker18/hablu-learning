@@ -17,7 +17,7 @@ const Home = () => {
                 href="#"
                 className="px-8 py-3 text-lg font-semibold border rounded dark:border-gray-100"
               >
-                corce
+                course
               </Link>
             </div>
           </div>

@@ -15,9 +15,7 @@ const Homecorceitems = ({ detls }) => {
             <h2 className="text-3xl font-semibold tracking-wide">
              {name}
             </h2>
-            <p className="dark:text-gray-100">
-              Curabitur luctus erat nunc, sed ullamcorper erat vestibulum eget.
-            </p>
+           
           </div>
           <button
             type="button"

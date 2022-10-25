@@ -13,9 +13,9 @@ import Main from "../Layout/Main";
     {path: '/' , element:<Main></Main>, children:[
         {path:'/' , element: <Home></Home>},
         {path:'/home' , element: <Home></Home>},
-        {path:'/corce' , element: <Corce></Corce> , loader: async()=>fetch(" https://hablu-larner-sarver-rahul-sarker18.vercel.app/items") , children:[
-            {path:'/corce/item/:id' , element:<CorceItes></CorceItes> , loader: async({params})=>fetch(` https://hablu-larner-sarver-rahul-sarker18.vercel.app/item/${params.id}`)},
-            {path:'/corce' , element: <CorseHome></CorseHome> , loader:()=> fetch('https://hablu-larner-sarver-rahul-sarker18.vercel.app/item/10')}
+        {path:'course' , element: <Corce></Corce> , loader: async()=>fetch("https://hablu-larner-sarver-rahul-sarker18.vercel.app/items") , children:[
+            {path:'/course/item/:id' , element:<CorceItes></CorceItes> , loader: async({params})=>fetch(`https://hablu-larner-sarver-rahul-sarker18.vercel.app/item/${params.id}`)},
+            {path:'course' , element: <CorseHome></CorseHome> , loader:()=> fetch('https://hablu-larner-sarver-rahul-sarker18.vercel.app/item/10')}
         ]} ,
         
 
@@ -26,4 +26,4 @@ import Main from "../Layout/Main";
     ]}
 ])
 
-//  https://hablu-larner-sarver-rahul-sarker18.vercel.app
+//  https://hablu-larner-sarver-rahul-sarker18.vercel.app/item/1
