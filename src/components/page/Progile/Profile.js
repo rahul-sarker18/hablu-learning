@@ -6,7 +6,7 @@ import { Authcontext } from "../../Context/UserContext";
 
 const Profile = () => {
   const { usr } = useContext(Authcontext);
-  // const { displayName, email, photoURL } = usr;
+
   return (
     <div className="flex flex-col mx-auto my-8 justify-center max-w-xs p-6 shadow-md rounded-xl sm:px-12 dark:bg-gray-900 dark:text-gray-100">
      {

@@ -10,6 +10,7 @@ import Home from "../components/page/Home/Home";
 import Profile from "../components/page/Progile/Profile";
 import Error from "../components/shared/Error/Error";
 import Main from "../Layout/Main";
+import Privatrout from "./Privatrout";
 
  export const router = createBrowserRouter([
     {path: '/' , element:<Main></Main>, children:[
@@ -25,13 +26,13 @@ import Main from "../Layout/Main";
            
         ]} ,
         
-        {path:'/pay' , element:<PayWith></PayWith>},
-        {path:'/profile' , element: <Profile></Profile>},
+        {path:'/pay' , element:<Privatrout><PayWith></PayWith></Privatrout>},
+        {path:'/profile' , element: <Privatrout><Profile></Profile></Privatrout>},
         {path:'/blog' , element: <Blog></Blog> },
         {path:'/login' , element: <Login></Login>},
         {path:'/signup' , element: <Signup></Signup>},
     ]},
-    
+
     {path:'*' ,element:<Error></Error>}
 ])
 

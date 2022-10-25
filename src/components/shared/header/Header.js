@@ -1,14 +1,21 @@
-import React from 'react';
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { Authcontext } from "../../Context/UserContext";
 
 const Header = () => {
+  const { usr } = useContext(Authcontext);
+
   return (
     <div className="navbar bg-orange-300 text-slate-900 shadow-lg">
       <div className="navbar-start">
-        <Link to="/" className="btn btn-ghost normal-case text-xl items-center mb-3 w-20">
-
-          <img  src="https://i.ibb.co/1J1ZchZ/images-removebg-preview.png" alt="" />
-         
+        <Link
+          to="/"
+          className="btn btn-ghost normal-case text-xl items-center mb-3 w-20"
+        >
+          <img
+            src="https://i.ibb.co/1J1ZchZ/images-removebg-preview.png"
+            alt=""
+          />
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -26,12 +33,18 @@ const Header = () => {
           <li>
             <NavLink to="/profile">Profile</NavLink>
           </li>
-          <li>
-            <NavLink to="/login">Log in</NavLink>
-          </li>
-          <li>
-            <NavLink to="/signup">Sign up</NavLink>
-          </li>
+          {usr?.uid ? (
+            <li><NavLink>Sign Out</NavLink></li>
+          ) : (
+            <>
+              <li>
+                <NavLink to="/login">Log in</NavLink>
+              </li>
+              <li>
+                <NavLink to="/signup">Sign up</NavLink>
+              </li>
+            </>
+          )}
         </ul>
       </div>
 
@@ -69,12 +82,18 @@ const Header = () => {
           <li>
             <NavLink to="/profile">Profile</NavLink>
           </li>
-          <li>
-            <NavLink to="/login">Log in</NavLink>
-          </li>
-          <li>
-            <NavLink to="/signup">Sign up</NavLink>
-          </li>
+          {usr?.uid ? (
+            <li><NavLink>Sign Out</NavLink></li>
+          ) : (
+            <>
+              <li>
+                <NavLink to="/login">Log in</NavLink>
+              </li>
+              <li>
+                <NavLink to="/signup">Sign up</NavLink>
+              </li>
+            </>
+          )}
         </ul>
       </div>
 
@@ -83,24 +102,38 @@ const Header = () => {
           htmlFor="Toggle1"
           className="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-100"
         >
-          <span className='text-slate-800'>Dark</span>
+          <span className="text-slate-800">Dark</span>
           <span className="relative">
             <input id="Toggle1" type="checkbox" className="hidden peer" />
             <div className="w-10 h-6 rounded-full shadow-inner dark:bg-gray-400 peer-checked:dark:bg-blue-400"></div>
             <div className="absolute inset-y-0 left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto dark:bg-gray-800"></div>
           </span>
-          <span className='text-slate-800'>Light</span>
+          <span className="text-slate-800">Light</span>
         </label>
 
-        <div className="avatar indicator">
-          <span className="indicator-item badge badge-secondary"></span>
-          <div className="w-10 h-10 rounded-full border-solid border-2 border-sky-500 ">
-            <img
-              src="https://www.pinpng.com/pngs/m/341-3415688_no-avatar-png-transparent-png.png"
-              alt=""
-            />
+        {
+          
+        }
+
+        {usr?.photoURL ? (
+          <div className="avatar indicator">
+            <span className="indicator-item badge badge-secondary"></span>
+            <div className="w-10 h-10 rounded-full border-solid border-2 border-sky-500 ">
+              <img title={usr?.displayName} src={usr.photoURL} alt="" />
+            </div>
           </div>
-        </div>
+        ) : (
+          <div className="avatar indicator">
+            <span className="indicator-item badge badge-secondary"></span>
+            <div className="w-10 h-10 rounded-full border-solid border-2 border-sky-500 ">
+              <img
+                title={usr?.displayName}
+                src="https://www.krasbival.com/image/clients/noimg.jpg"
+                alt=""
+              />
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
