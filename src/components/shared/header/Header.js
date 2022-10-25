@@ -73,7 +73,7 @@ const Header = () => {
 
       <div className="navbar-end mr-10 gap-4  ">
         <label
-          for="Toggle1"
+          htmlFor="Toggle1"
           className="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-100"
         >
           <span className='text-slate-800'>Dark</span>
