@@ -7,7 +7,7 @@ import { FcGoogle } from "react-icons/fc";
 import { AiFillGithub } from "react-icons/ai";
 
 const Signup = () => {
-  const { signupemailpass, auth } = useContext(Authcontext);
+  const { signupemailpass, auth , googlesignupFunc } = useContext(Authcontext);
 
   const handelsignup = (event) => {
     event.preventDefault();
@@ -37,6 +37,22 @@ const Signup = () => {
         toast.error(error.message);
       });
   };
+
+  // google sign up
+  const handelgooglesignup =()=>{
+    googlesignupFunc()
+    .then(result => {
+      console.log(result.user);
+      toast.success('success full sign up with google')
+    })
+    .catch(e => console.log(e))
+  }
+
+  // github sign up
+
+  const handelgitsignup =()=>{
+    console.log('git hub conacted');
+  }
 
   return (
     <div className="w-full max-w-md p-8 space-y-3 mx-auto my-10 rounded-xl dark:bg-gray-900 dark:text-gray-100">
@@ -96,12 +112,14 @@ const Signup = () => {
       </div>
       <div className="flex justify-center space-x-4">
         <button
+        onClick={handelgooglesignup}
           aria-label="Log in with Google "
           className="p-3 text-3xl hover:opacity-80 rounded-sm"
         >
           <FcGoogle />
         </button>
         <button
+        onClick={handelgitsignup}
           aria-label="Log in with Twitter"
           className="p-3 text-3xl hover:opacity-80 rounded-sm"
         >
