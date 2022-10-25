@@ -55,7 +55,10 @@ const handellogin=(event) =>{
   return (
     <div className="w-full mx-auto my-10  max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100">
       <h1 className="text-2xl font-bold text-center">Login</h1>
-      <form onSubmit={handellogin} className="space-y-6 ng-untouched ng-pristine ng-valid">
+      <form
+        onSubmit={handellogin}
+        className="space-y-6 ng-untouched ng-pristine ng-valid"
+      >
         <div className="space-y-1 text-sm">
           <label htmlFor="email" className="block dark:text-gray-400">
             Email
@@ -83,6 +86,18 @@ const handellogin=(event) =>{
             <button>Forgot Password?</button>
           </div>
         </div>
+        <div className="flex items-center">
+          <input
+            type="checkbox"
+            name="remember"
+            id="remember"
+            aria-label="Remember me"
+            className="mr-1 rounded-sm focus:ring-blue-400 focus:dark:border-blue-400 focus:ring-2 accent-blue-400"
+          />
+          <label for="remember" className="text-sm dark:text-gray-400">
+            Remember me
+          </label>
+        </div>
         <button className="block w-full p-3 text-center rounded-sm dark:text-gray-900 dark:bg-blue-400">
           Sign in
         </button>
@@ -96,14 +111,14 @@ const handellogin=(event) =>{
       </div>
       <div className="flex justify-center space-x-4">
         <button
-        onClick={handelgooglesignup}
+          onClick={handelgooglesignup}
           aria-label="Log in with Google "
           className="p-3 text-3xl hover:opacity-80 rounded-sm"
         >
           <FcGoogle />
         </button>
         <button
-        onClick={handelgitsignup}
+          onClick={handelgitsignup}
           aria-label="Log in with Twitter"
           className="p-3 text-3xl hover:opacity-80 rounded-sm"
         >

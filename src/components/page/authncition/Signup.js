@@ -105,6 +105,18 @@ const Signup = () => {
             className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-100 dark:text-gray-900 focus:dark:border-blue-400"
           />
         </div>
+        <div className="flex items-center">
+          <input
+            type="checkbox"
+            name="remember"
+            id="remember"
+            aria-label="Remember me"
+            className="mr-1 rounded-sm focus:ring-blue-400 focus:dark:border-blue-400 focus:ring-2 accent-blue-400"
+          />
+          <label for="remember" className="text-sm dark:text-gray-400">
+            Remember me
+          </label>
+        </div>
         <button className="block w-full p-3 text-center rounded-sm dark:text-gray-900 dark:bg-blue-400">
           Sign up
         </button>
@@ -118,14 +130,14 @@ const Signup = () => {
       </div>
       <div className="flex justify-center space-x-4">
         <button
-        onClick={handelgooglesignup}
+          onClick={handelgooglesignup}
           aria-label="Log in with Google "
           className="p-3 text-3xl hover:opacity-80 rounded-sm"
         >
           <FcGoogle />
         </button>
         <button
-        onClick={handelgitsignup}
+          onClick={handelgitsignup}
           aria-label="Log in with Twitter"
           className="p-3 text-3xl hover:opacity-80 rounded-sm"
         >

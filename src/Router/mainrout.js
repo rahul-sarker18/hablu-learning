@@ -8,6 +8,7 @@ import CorseHome from "../components/page/Corce/CorseHome";
 import PayWith from "../components/page/Corce/PayWith";
 import Home from "../components/page/Home/Home";
 import Profile from "../components/page/Progile/Profile";
+import Error from "../components/shared/Error/Error";
 import Main from "../Layout/Main";
 
  export const router = createBrowserRouter([
@@ -29,7 +30,9 @@ import Main from "../Layout/Main";
         {path:'/blog' , element: <Blog></Blog> },
         {path:'/login' , element: <Login></Login>},
         {path:'/signup' , element: <Signup></Signup>},
-    ]}
+    ]},
+    
+    {path:'*' ,element:<Error></Error>}
 ])
 
 //  https://hablu-larner-sarver-rahul-sarker18.vercel.app/item/1
