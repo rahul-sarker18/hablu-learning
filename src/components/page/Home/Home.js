@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import Corce from '../Corce/Corce';
+import CorseHome from '../Corce/CorseHome';
 
 const Home = () => {
   return (
@@ -30,6 +32,9 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* corces */}
+   
     </div>
   );
 };

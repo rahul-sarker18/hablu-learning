@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { BiRupee } from "react-icons/bi";
 import { AiFillStar } from "react-icons/ai";
 import { Link, useLoaderData } from "react-router-dom";
 
 const CorceItes = () => {
   const curentapi = useLoaderData();
-  const { id, name, img, title, reting, price } = curentapi;
+  const {name, img, title, reting, price } = curentapi;
   return (
     <div className="card w-96 bg-base-100 shadow-xl">
       <figure>
@@ -34,8 +34,8 @@ const CorceItes = () => {
           </div>
         </div>
         <div className=" flex">
-          <Link to='/course'><button className="btn btn-primary w-1/2">Button</button></Link>
-          <Link to='/'><button className="btn btn-secondary w-1/2">Button</button></Link>
+          <Link to='/course' className="btn btn-primary w-1/2"><button >Course</button></Link>
+          <Link to='/pay' className="btn btn-secondary w-1/2"><button >By now</button></Link>
           
         </div>
       </div>

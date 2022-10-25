@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Homecorceitems = ({ detls }) => {
   const { id, name, img } = detls;
@@ -17,12 +18,12 @@ const Homecorceitems = ({ detls }) => {
             </h2>
            
           </div>
-          <button
-            type="button"
+          <Link
+            to={`details/${id}`}
             className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md dark:bg-blue-400 dark:text-gray-900"
           >
             Read more
-          </button>
+          </Link>
         </div>
       </div>
     </div>

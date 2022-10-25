@@ -3,11 +3,12 @@ import { Link, NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
-    <div className="navbar bg-base-100 bg-orange-300 text-slate-900 shadow-lg">
+    <div className="navbar bg-orange-300 text-slate-900 shadow-lg">
       <div className="navbar-start">
-        <Link to="/" className="btn btn-ghost normal-case text-xl">
-          <img src="../../img/logo.png" alt="" />
-          TRAVEL..
+        <Link to="/" className="btn btn-ghost normal-case text-xl items-center mb-3 w-20">
+
+          <img  src="https://i.ibb.co/1J1ZchZ/images-removebg-preview.png" alt="" />
+         
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -53,20 +54,26 @@ const Header = () => {
         </label>
         <ul
           tabIndex={0}
-          className="menu menu-compact dropdown-content bg-slate-200  mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+          className="menu menu-compact dropdown-content bg-slate-200  mt-3 p-2 shadow rounded-box w-52"
         >
           <li>
-            <NavLink to="/news">News</NavLink>
+            <NavLink to="/home">Home</NavLink>
+          </li>
+          <li>
+            <NavLink to="/course">Course</NavLink>
           </li>
 
           <li>
-            <NavLink to="/book">Booking</NavLink>
-          </li>
-          <li>
-            <NavLink to="/contracts">Contract</NavLink>
-          </li>
-          <li>
             <NavLink to="/blog">Bolg</NavLink>
+          </li>
+          <li>
+            <NavLink to="/profile">Profile</NavLink>
+          </li>
+          <li>
+            <NavLink to="/login">Log in</NavLink>
+          </li>
+          <li>
+            <NavLink to="/signup">Sign up</NavLink>
           </li>
         </ul>
       </div>

@@ -5,7 +5,7 @@ const Sidenave = ({ item }) => {
   const { id, name,  } = item;
   return (
     <div className="my-4 hover:text-slate-500">
-      <Link to={`item/${id}`}># {name}</Link>
+      <Link to={`details/${id}`}># {name}</Link>
     </div>
   );
 };
