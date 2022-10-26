@@ -1,5 +1,5 @@
 import React from 'react';
-import { AiFillStar } from 'react-icons/ai';
+
 import { BiRupee } from 'react-icons/bi';
 import { Link, useLoaderData } from 'react-router-dom';
 
@@ -7,7 +7,7 @@ const CoeurseDetls = () => {
     const curentapi = useLoaderData();
     const {name, img, title, reting, price } = curentapi;
     return (
-        <div className="card w-96 bg-base-100 shadow-xl">
+      <div className="card w-96 mx-auto my-6 bg-base-100 shadow-xl">
         <figure>
           <img
             src={img}
@@ -23,9 +23,24 @@ const CoeurseDetls = () => {
           <p>{title}</p>
           <div className="flex justify-between text-orange-400 text-2xl">
             <div className="flex items-center ">
-              <AiFillStar/>
-              <AiFillStar/>
-              <AiFillStar/>
+              <div className="rating">
+                <input
+                  type="radio"
+                  name="rating-1"
+                  className="mask mask-star"
+                />
+                <input
+                  type="radio"
+                  name="rating-1"
+                  className="mask mask-star"
+                  checked
+                />
+                <input
+                  type="radio"
+                  name="rating-1"
+                  className="mask mask-star"
+                />
+              </div> 
               <h1 className="ml-2">{reting}</h1>
             </div>
             <div className="flex items-center">
@@ -34,9 +49,12 @@ const CoeurseDetls = () => {
             </div>
           </div>
           <div className=" flex">
-            <Link to='/course' className="btn btn-primary w-1/2"><button >Course</button></Link>
-            <Link to='/pay' className="btn btn-secondary w-1/2"><button >By now</button></Link>
-            
+            <Link to="/course" className="btn btn-primary w-1/2">
+              <button>Course</button>
+            </Link>
+            <Link to="/pay" className="btn btn-secondary w-1/2">
+              <button>By now</button>
+            </Link>
           </div>
         </div>
       </div>

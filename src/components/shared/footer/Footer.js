@@ -1,40 +1,23 @@
 import React from 'react';
+import { FaFacebook, FaGithub, FaGoogle } from 'react-icons/fa';
 import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="footer items-center p-4 bg-neutral text-neutral-content">
+    <footer className="footer items-center p-4 mt-6 bg-neutral text-neutral-content">
       <div className="items-center grid-flow-col">
         <img src="" alt="" />
         <p>Copyright © 2022 - All right reserved</p>
       </div>
-      <div className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
+      <div className="grid-flow-col gap-4 md:place-self-center md:justify-self-end text-2xl">
         <Link>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            className="fill-current"
-          ></svg>
+          <FaFacebook></FaFacebook>
         </Link>
         <Link>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            className="fill-current"
-          ></svg>
+         <FaGoogle></FaGoogle>
         </Link>
         <Link>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            className="fill-current"
-          ></svg>
+          <FaGithub></FaGithub>
         </Link>
       </div>
     </footer>
