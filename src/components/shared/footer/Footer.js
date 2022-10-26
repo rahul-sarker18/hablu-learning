@@ -5,11 +5,11 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <footer className="footer items-center p-4 mt-6 bg-neutral text-neutral-content">
-      <div className="items-center grid-flow-col">
-        <img src="" alt="" />
+      <div className="items-center grid-flow-col mx-auto ">
+       
         <p>Copyright © 2022 - All right reserved</p>
       </div>
-      <div className="grid-flow-col gap-4 md:place-self-center md:justify-self-end text-2xl">
+      <div className="grid-flow-col gap-4 md:place-self-center md:justify-self-end text-2xl mx-auto text-center">
         <Link>
           <FaFacebook></FaFacebook>
         </Link>
@@ -20,6 +20,7 @@ const Footer = () => {
           <FaGithub></FaGithub>
         </Link>
       </div>
+      
     </footer>
   );
 };
