@@ -129,6 +129,7 @@ const Header = () => {
           <span className="text-slate-800">Light</span>
         </label>
 
+        <Link to='/profile'>
         {usr?.uid ? (
           <div className="avatar indicator">
             <span className="indicator-item badge badge-secondary"></span>
@@ -145,6 +146,25 @@ const Header = () => {
             </div>
           </div>
         ) : undefined}
+
+        </Link>
+
+        {/* {usr?.uid ? (
+          <div className="avatar indicator">
+            <span className="indicator-item badge badge-secondary"></span>
+            <div className="w-10 h-10 rounded-full border-solid border-2 border-sky-500 ">
+              {usr?.photoURL ? (
+                <img title={usr?.displayName} src={usr.photoURL} alt="" />
+              ) : (
+                <img
+                  title={usr?.displayName}
+                  src="https://www.krasbival.com/image/clients/noimg.jpg"
+                  alt=""
+                />
+              )}
+            </div>
+          </div>
+        ) : undefined} */}
       </div>
     </div>
   );
