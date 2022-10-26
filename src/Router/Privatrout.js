@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
-import { Navigate } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 import { Authcontext } from "../components/Context/UserContext";
 
 const Privatrout = ({ children }) => {
   const { usr, loder } = useContext(Authcontext);
+  const location =useLocation();
   if (loder) {
     return (
       <div className="flex flex-col mx-auto m-8 rounded shadow-md w-60 sm:w-80 animate-pulse h-96">
@@ -20,7 +21,7 @@ const Privatrout = ({ children }) => {
     return children;
   }
 
-  return <Navigate to="/login"></Navigate>;
+  return <Navigate to="/login" state={{from : location}} replace></Navigate>;
 };
 
 export default Privatrout;

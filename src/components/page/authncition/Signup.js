@@ -1,13 +1,18 @@
 import { updateProfile } from "firebase/auth";
 import React, { useContext, useState } from "react";
 import toast from "react-hot-toast";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Authcontext } from "../../Context/UserContext";
 import { FcGoogle } from "react-icons/fc";
 import { AiFillGithub } from "react-icons/ai";
 
 const Signup = () => {
-  const { signupemailpass, auth , googlesignupFunc , gitsignFunc } = useContext(Authcontext);
+  const { signupemailpass, auth, googlesignupFunc, gitsignFunc } =
+    useContext(Authcontext);
+
+  const naveget = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   const handelsignup = (event) => {
     event.preventDefault();
@@ -21,6 +26,7 @@ const Signup = () => {
     signupemailpass(email, password)
       .then((result) => {
         form.reset();
+        naveget(from, { replace: true });
         updateProfile(auth.currentUser, {
           displayName: username,
         })
@@ -40,8 +46,11 @@ const Signup = () => {
       .then((result) => {
         console.log(result.user);
         toast.success("success full sign up with GOOGLE");
+        naveget(from, { replace: true });
       })
-      .catch((e) => console.log(e));
+      .catch((e) => {
+        toast.error(e.message);
+      });
   };
 
   // github sign up
@@ -50,16 +59,18 @@ const Signup = () => {
     gitsignFunc()
       .then((result) => {
         toast.success("success full sign up with GIT-HUB");
+        naveget(from, { replace: true });
       })
-      .catch((e) => console.log(e));
+      .catch((e) => {
+        toast.error(e.message);
+      });
   };
 
-  // chatch box 
-  const [chetch , setChetch] =useState(false);
-  const handelchack=(p)=>{
-    setChetch( p.target.checked);
-  }
-
+  // chatch box
+  const [chetch, setChetch] = useState(false);
+  const handelchack = (p) => {
+    setChetch(p.target.checked);
+  };
 
   return (
     <div className="w-full max-w-md p-8 space-y-3 mx-auto my-10 rounded-xl dark:bg-gray-900 dark:text-gray-100">
@@ -108,7 +119,7 @@ const Signup = () => {
         </div>
         <div className="flex items-center">
           <input
-          onClick={handelchack}
+            onClick={handelchack}
             type="checkbox"
             name="remember"
             id="remember"
@@ -119,7 +130,14 @@ const Signup = () => {
             Remember me
           </label>
         </div>
-        <button disabled={!chetch} className={`block w-full p-3 text-center rounded-sm ${chetch ? ' dark:text-gray-900 dark:bg-blue-400' : ' dark:text-gray-800 dark:bg-blue-300'}`}>
+        <button
+          disabled={!chetch}
+          className={`block w-full p-3 text-center rounded-sm ${
+            chetch
+              ? " dark:text-gray-900 dark:bg-blue-400"
+              : " dark:text-gray-800 dark:bg-blue-300"
+          }`}
+        >
           Sign up
         </button>
       </form>

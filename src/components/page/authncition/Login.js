@@ -3,12 +3,15 @@ import React, { useContext, useState } from "react";
 import toast from "react-hot-toast";
 import { AiFillGithub } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Authcontext } from "../../Context/UserContext";
 
 const Login = () => {
-  const { googlesignupFunc, gitsignFunc, loginemailfunc ,auth } =
+  const { googlesignupFunc, gitsignFunc, loginemailfunc, auth } =
     useContext(Authcontext);
+  const naveget = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   // login gmail and password
   const handellogin = (event) => {
@@ -22,9 +25,12 @@ const Login = () => {
         console.log(result.user);
         form.reset();
         toast.success("succes full log in");
+        naveget(from, { replace: true });
       })
 
-      .catch((e) => console.log(e));
+      .catch((e) => {
+        toast.error(e.message);
+      });
   };
 
   // google sign up
@@ -32,8 +38,11 @@ const Login = () => {
     googlesignupFunc()
       .then((result) => {
         toast.success("success full sign up with GOOGLE");
+        naveget(from, { replace: true });
       })
-      .catch((e) => console.log(e));
+      .catch((e) => {
+        toast.error(e.message);
+      });
   };
 
   // github sign up
@@ -42,8 +51,11 @@ const Login = () => {
     gitsignFunc()
       .then((result) => {
         toast.success("success full sign up with GIT-HUB");
+        naveget(from, { replace: true });
       })
-      .catch((e) => console.log(e));
+      .catch((e) => {
+        toast.error(e.message);
+      });
   };
   // one blur in email get
   const [getemail, setGetgmail] = useState();
@@ -52,9 +64,11 @@ const Login = () => {
   };
   // forgot password
   const forgotpassword = () => {
-    sendPasswordResetEmail(auth ,getemail)
-    .then(()=>{toast.success('checked your email')})
-    .catch(()=>{})
+    sendPasswordResetEmail(auth, getemail)
+      .then(() => {
+        toast.success("checked your email");
+      })
+      .catch(() => {});
   };
 
   // chetch box
