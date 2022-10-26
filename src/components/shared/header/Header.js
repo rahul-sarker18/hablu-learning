@@ -28,6 +28,9 @@ const Header = () => {
             alt=""
           />
         </Link>
+        <div className=" text-2xl font-bold sm:hidden md:block xl:block lg:block xxl:block block">
+          <Link to="/">HABLU-LEARNING</Link>
+        </div>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">
@@ -58,7 +61,6 @@ const Header = () => {
               </li>
             </>
           )}
-          
         </ul>
       </div>
 

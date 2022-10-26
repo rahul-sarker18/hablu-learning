@@ -1,7 +1,7 @@
 import React from "react";
 import { BiRupee } from "react-icons/bi";
-import { AiFillStar } from "react-icons/ai";
 import { Link, useLoaderData } from "react-router-dom";
+import { FaArrowCircleDown } from "react-icons/fa";
 
 const CorceItes = () => {
   const curentapi = useLoaderData();
@@ -16,10 +16,13 @@ const CorceItes = () => {
         />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">
-          {name}
-          <div className="badge badge-secondary">NEW</div>
-        </h2>
+        <div className="flex justify-between">
+          <h2 className="card-title">
+            {name}
+            <div className="badge badge-secondary">NEW</div>
+          </h2>
+          <FaArrowCircleDown className="text-3xl text-amber-400   font-extrabold"></FaArrowCircleDown>
+        </div>
         <p>{title}</p>
         <div className="flex justify-between text-orange-400 text-2xl">
           <div className="flex items-center ">

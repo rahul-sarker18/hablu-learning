@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { BiRupee } from 'react-icons/bi';
+import { FaArrowCircleDown } from 'react-icons/fa';
 import { Link, useLoaderData } from 'react-router-dom';
 
 const CoeurseDetls = () => {
@@ -16,10 +17,13 @@ const CoeurseDetls = () => {
           />
         </figure>
         <div className="card-body">
+        <div className="flex justify-between">
           <h2 className="card-title">
             {name}
             <div className="badge badge-secondary">NEW</div>
           </h2>
+          <FaArrowCircleDown className="text-3xl text-amber-400   font-extrabold"></FaArrowCircleDown>
+        </div>
           <p>{title}</p>
           <div className="flex justify-between text-orange-400 text-2xl">
             <div className="flex items-center ">
