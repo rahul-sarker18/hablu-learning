@@ -2,12 +2,20 @@ import React from "react";
 import { BiRupee } from "react-icons/bi";
 import { Link, useLoaderData } from "react-router-dom";
 import { FaArrowCircleDown } from "react-icons/fa";
+import ReactToPdf from 'react-to-pdf'
 
+
+const ref = React.createRef();
 const CorceItes = () => {
   const curentapi = useLoaderData();
   const {name, img, title, reting, price } = curentapi;
+  const options = {
+    orientation: "landscape",
+    unit: "in",
+    format: [8, 8],
+  };
   return (
-    <div className="card mx-auto w-96 bg-base-100 shadow-xl">
+    <div ref={ref} className="card mx-auto w-96 bg-base-100 shadow-xl">
       <figure>
         <img
           src={img}
@@ -21,7 +29,21 @@ const CorceItes = () => {
             {name}
             <div className="badge badge-secondary">NEW</div>
           </h2>
-          <FaArrowCircleDown className="text-3xl text-amber-400   font-extrabold"></FaArrowCircleDown>
+          <ReactToPdf
+            targetRef={ref}
+            filename="div-blue.pdf"
+            options={options}
+            x={0.5}
+            y={0.5}
+            scale={0.8}
+          >
+            {({ toPdf }) => (
+              <button onClick={toPdf}>
+                {" "}
+                <FaArrowCircleDown className="text-3xl text-amber-400   font-extrabold"></FaArrowCircleDown>
+              </button>
+            )}
+          </ReactToPdf>
         </div>
         <p>{title}</p>
         <div className="flex justify-between text-orange-400 text-2xl">
