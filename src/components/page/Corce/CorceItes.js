@@ -39,7 +39,6 @@ const CorceItes = () => {
           >
             {({ toPdf }) => (
               <button onClick={toPdf}>
-                {" "}
                 <FaArrowCircleDown className="text-3xl text-amber-400   font-extrabold"></FaArrowCircleDown>
               </button>
             )}
