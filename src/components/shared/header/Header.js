@@ -3,15 +3,19 @@ import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Authcontext } from "../../Context/UserContext";
 
+
+
+
 const Header = () => {
   const { usr, auth } = useContext(Authcontext);
-
+  
   const logoutbtn = () => {
     signOut(auth)
       .then(() => {})
       .catch((error) => {});
   };
 
+ 
   return (
     <div className="navbar bg-orange-300 text-slate-900 shadow-lg">
       <div className="navbar-start">
@@ -54,6 +58,7 @@ const Header = () => {
               </li>
             </>
           )}
+          
         </ul>
       </div>
 
@@ -138,8 +143,6 @@ const Header = () => {
             </div>
           </div>
         ) : undefined}
-
-      
       </div>
     </div>
   );

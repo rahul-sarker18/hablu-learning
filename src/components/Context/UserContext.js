@@ -8,6 +8,7 @@ const auth =getAuth(app)
 const UserContext = ({ children }) => {
     const [usr , setUser] =useState(null);
     const [loder , setloder] =useState(true)
+  
 
     //email and password signup
     const signupemailpass =(email, password)=>{
