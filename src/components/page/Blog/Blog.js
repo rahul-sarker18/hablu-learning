@@ -11,7 +11,7 @@ const Blog = () => {
             
           </div>
           <div>
-            <div data-aos="zoom-out-up" className="border-2 my-3 border-sky-500 p-6">
+            <div data-aos="zoom-out-up" className="border-2 my-3 border-sky-500 p-4">
               <h1 className="text-2xl mb-4 font-bold">1. what is cors?</h1>
               <p>
                 <span className="text-red-500 mr-3">ANS:</span>

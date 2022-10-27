@@ -2,7 +2,7 @@ import { signOut } from "firebase/auth";
 import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Authcontext } from "../../Context/UserContext";
-
+import './Header.css'
 
 
 
@@ -29,7 +29,7 @@ const Header = () => {
           />
         </Link>
         <div className=" text-2xl font-bold sm:hidden md:block xl:block lg:block xxl:block block">
-          <Link to="/">HABLU-LEARNING</Link>
+          <Link className="companyename" to="/">HABLU-LEARNING</Link>
         </div>
       </div>
       <div className="navbar-center hidden lg:flex">
