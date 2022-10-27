@@ -12,7 +12,7 @@ const PayWith = () => {
   };
 
   return (
-    <div className="flex mx-auto my-6 flex-col max-w-md p-6 rounded-md sm:p-10 dark:bg-gray-900 dark:text-gray-100">
+    <div data-aos="zoom-out-up" className="flex mx-auto my-6 flex-col max-w-md p-6 rounded-md sm:p-10 dark:bg-gray-900 dark:text-gray-100">
       <div className="mb-8 text-center">
         <h1 className="my-3 text-4xl font-bold">Booking course</h1>
       </div>

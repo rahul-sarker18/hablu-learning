@@ -5,7 +5,7 @@ const Homecorceitems = ({ detls }) => {
   const { id, name, img } = detls;
   return (
     <div>
-      <div className="max-w-xs rounded-md mx-auto shadow-md dark:bg-gray-900 dark:text-gray-100">
+      <div data-aos="zoom-out-up" className="max-w-xs rounded-md mx-auto shadow-md dark:bg-gray-900 dark:text-gray-100">
         <img
           src={img}
           alt=""

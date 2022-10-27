@@ -5,7 +5,7 @@ const Coursebaner = ({detls}) => {
     const { id, name, img } = detls;
     return (
       <div>
-        <div className="max-w-xs rounded-md shadow-md mx-auto dark:bg-gray-900 dark:text-gray-100">
+        <div data-aos="fade-up" className="max-w-xs rounded-md shadow-md mx-auto dark:bg-gray-900 dark:text-gray-100">
           <img
             src={img}
             alt=""

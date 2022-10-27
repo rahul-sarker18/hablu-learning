@@ -73,7 +73,7 @@ const Signup = () => {
   };
 
   return (
-    <div className="w-full max-w-md p-8 space-y-3 mx-auto my-10 rounded-xl dark:bg-gray-900 dark:text-gray-100">
+    <div data-aos="zoom-out-up" className="w-full max-w-md p-8 space-y-3 mx-auto my-10 rounded-xl dark:bg-gray-900 dark:text-gray-100">
       <h1 className="text-2xl font-bold text-center">Sign up</h1>
       <form
         onSubmit={handelsignup}

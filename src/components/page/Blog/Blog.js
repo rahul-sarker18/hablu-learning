@@ -11,7 +11,7 @@ const Blog = () => {
             
           </div>
           <div>
-            <div className="border-2 my-3 border-sky-500 p-6">
+            <div data-aos="zoom-out-up" className="border-2 my-3 border-sky-500 p-6">
               <h1 className="text-2xl mb-4 font-bold">1. what is cors?</h1>
               <p>
                 <span className="text-red-500 mr-3">ANS:</span>
@@ -25,7 +25,7 @@ const Blog = () => {
               </p>
             </div>
 
-            <div className="border-2 my-3 border-sky-500 p-6">
+            <div data-aos="zoom-out-up" className="border-2 my-3 border-sky-500 p-6">
               <h1 className="text-2xl mb-4 font-bold">
                 2. Why are you using firebase? What other options do you have to
                 implement authentication?
@@ -40,7 +40,7 @@ const Blog = () => {
                 and more.
               </p>
             </div>
-            <div className="border-2 my-3 border-sky-500 p-6">
+            <div data-aos="zoom-out-up" className="border-2 my-3 border-sky-500 p-6">
               <h1 className="text-2xl mb-4 font-bold"> 3. How does the private route work?</h1>
 
               <p>
@@ -50,7 +50,7 @@ const Blog = () => {
                 authorized for a specific page, they cannot access it.
               </p>
             </div>
-            <div className="border-2 border-sky-500 p-6">
+            <div data-aos="zoom-out-up" className="border-2 border-sky-500 p-6">
               <h1 className="text-2xl mb-4 font-bold">4. What is Node? How does Node work?</h1>
 
               <p>
